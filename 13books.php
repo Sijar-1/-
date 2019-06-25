@@ -202,14 +202,255 @@ catch(Exception $e)
 	exit();
 }
 
+$num=0;
+if($num1!=0){//用户有收藏的书开始
+
+
+foreach($result as $row)
+{
+	$book_id=$row["book_id"];
+}
+try{
+	$sql="select * from bookcategory where book_id=$book_id";
+	$result = $pdo->query($sql);
+	$num=$result->rowCount();
+}
+catch(Exception $e)
+{
+	$output = 'Error performing update'.$e->getMessage();
+	echo $output;
+	exit();
+}
+
+
+if($num!=0){//此书有兴趣标签的开始
+
+
+
+foreach($result as $row){
+$category=$row["category"];
+}
+try{
+	$sql="select * from bookcategory where category='$category' order by rand() ";//按照书本分类推选书
+	$result = $pdo->query($sql);
+
+	}catch(Exception $e){
+		$output = 'Error performing update'.$e->getMessage();
+		echo $output;
+		exit();
+	}
+foreach($result as $row){
+	$book_id=$row["book_id"];
+	try{
+		$sql="select * from book where book_id=$book_id";
+		$result = $pdo->query($sql);
+	}catch(Exception $e){
+		$output = 'Error performing update'.$e->getMessage();
+		echo $output;
+		exit();
+	}
+	foreach($result as $row){
+	$bname=$row["bname"];
+	$author=$row["author"];
+	$publisher=$row["publisher"];
+    $picture=$row["picture"];
+	}
+?>
+
+     <table class="inner" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+  <tr></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td width="100px" rowspan="2"><div class="image"> 
+   <img src=<?php  echo $picture; ?>  width="100px" height="100px"> </div></td>
+    <td>
+<div class='info'><?php echo $bname; ?>  </div>
+<div class='info1'><?php echo $author."&nbsp &nbsp  &nbsp".$publisher; ?>  </div>
+	</td>
+  </tr>
+  
+  <tr>
+   <td>
+      <div>
+	   <form method="post" action="34bookintroduction.php" >
+	   <input type="hidden" name="shunxu" value=<?php echo $book_id; ?>    />
+		   <button class="hide"  type="submit">查看信息</button>
+	    </form>
+		<form method="post" action="13books/13addInFavorite.php"  >
+		<input type="hidden" name="shunxu" value=<?php echo $book_id; ?>    />
+			<button class="hide" type="submit">加入收藏夹</button>
+	    </form>
+		  </div>
+    </td>
+  </tr>
+
+</tbody>
+</table>
 
 
 
 
+<?php
+}
+}//此书有兴趣标签的结束
+}//用户有收藏的书结束
+
+
+try{
+	$sql="select * from user_interest_label where uid=$uid order by rand() limit 1";
+		$result = $pdo->query($sql);
+		$num2=$result->rowCount();
+	}catch(Exception $e){
+		$output = 'Error performing update'.$e->getMessage();
+		echo $output;
+		exit();
+	}
 	
 	
 	
-	//推荐书籍算法就不放进来了
+	if($num2!=0){//用户有原始兴趣标签的开始
+		
+		
+foreach($result as $row){
+$iid=$row["iid"];
+}
+try{
+		$sql="select * from interest_label where iid=$iid";
+		$result = $pdo->query($sql);
+	}catch(Exception $e){
+		$output = 'Error performing update'.$e->getMessage();
+		echo $output;
+		exit();
+	}
+foreach($result as $row){
+	$category=$row["category"];
+}
+try{
+		$sql="select * from bookcategory where category=$category order by rand()  ";//按照个人兴趣标签推荐书
+		$result = $pdo->query($sql);
+	}catch(Exception $e){
+		$output = 'Error performing update'.$e->getMessage();
+		echo $output;
+		exit();
+	}
+foreach($result as $row){
+	$book_id=$row["book_id"];
+	try{
+		$sql="select * from book where book_id=$book_id";
+		$result = $pdo->query($sql);
+	}catch(Exception $e){
+		$output = 'Error performing update'.$e->getMessage();
+		echo $output;
+		exit();
+	}
+	foreach($result as $row){
+	$bname=$row["bname"];
+	$author=$row["author"];
+	$publisher=$row["publisher"];
+    $picture=$row["picture"];
+	}
+?>
+
+
+     <table class="inner" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+  <tr></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td width="100px" rowspan="2"><div class="image"> 
+   <img src=<?php  echo $picture; ?>  width="100px" height="100px"> </div></td>
+    <td>
+<div class='info'><?php echo $bname; ?>  </div>
+<div class='info1'><?php echo $author."&nbsp &nbsp  &nbsp".$publisher; ?>  </div>
+	</td>
+  </tr>
+  
+  <tr>
+   <td>
+      <div>
+	   <form method="post" action="34bookintroduction.php" >
+	   <input type="hidden" name="shunxu" value=<?php echo $book_id; ?>    />
+		   <button class="hide"  type="submit">查看信息</button>
+	    </form>
+		<form method="post" action="13books/13addInFavorite.php"  >
+		<input type="hidden" name="shunxu" value=<?php echo $book_id; ?>    />
+			<button class="hide" type="submit">加入收藏夹</button>
+	    </form>
+		  </div>
+    </td>
+  </tr>
+
+</tbody>
+</table>
+<?php
+}
+	}//用户有原始兴趣标签的结束
+	
+	
+	
+	if($num==0&&$num2==0)
+	{//随机推荐的开始
+		
+	try{
+		$sql="select * from book order by rand() limit 6";
+		$result = $pdo->query($sql);
+	}catch(Exception $e){
+		$output = 'Error performing update'.$e->getMessage();
+		echo $output;
+		exit();
+	}
+	foreach($result as $row){
+		$book_id=$row['book_id'];
+	$bname=$row["bname"];
+	$author=$row["author"];
+	$publisher=$row["publisher"];
+    $picture=$row["picture"];
+	
+?>
+
+
+     <table class="inner" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+  <tr></tr>
+</tbody>
+
+<tbody>
+  <tr>
+    <td width="100px" rowspan="2"><div class="image"> 
+   <img src=<?php  echo $picture; ?>  width="100px" height="100px"> </div></td>
+    <td>
+<div class='info'><?php echo $bname; ?>  </div>
+<div class='info1'><?php echo $author."&nbsp &nbsp  &nbsp".$publisher; ?>  </div>
+	</td>
+  </tr>
+  
+  <tr>
+   <td>
+      <div>
+	   <form method="post" action="34bookintroduction.php" >
+	   <input type="hidden" name="shunxu" value=<?php echo $book_id; ?>    />
+		   <button class="hide"  type="submit">查看信息</button>
+	    </form>
+		<form method="post" action="13books/13addInFavorite.php"  >
+		<input type="hidden" name="shunxu" value=<?php echo $book_id; ?>    />
+			<button class="hide" type="submit">加入收藏夹</button>
+	    </form>
+		  </div>
+    </td>
+  </tr>
+
+</tbody>
+</table>	
+		
+		
+	<?php	
+	}
+	}//随机推荐的结束
 ?>     	
 
 

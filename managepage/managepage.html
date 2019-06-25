@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>管理员界面</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <h1>管理评论</h1>
+    <ul>
+       <?php foreach ($comments as $comment): ?>
+       <li>  
+           <form action="mangkuozhan.php" method="post">
+               <div><?php echo $comment['uid']; ?></div>
+               <div><?php $text=courseplay($comment['courseid']); echo $text; ?></div>
+               <div><?php echo $comment['content']; ?></div>
+               <div>发布时间：<?php echo $comment['time']; ?>
+       <input type="hidden" name="id" value="<?php echo $comment['id']; ?>">
+       <input type="submit" name="action" value="Publish">
+       <input type="submit" name="action" value="Delete">
+       </div>
+           </form>
+           </li>
+           <?php endforeach; ?>
+    </ul>
+    </body>
+</html>
