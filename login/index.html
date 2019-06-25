@@ -1,0 +1,158 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+<title>高校修炼手册</title> 
+<meta http-equiv="Content-Type" content="text/html" charset="utf-8" />
+<script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+<script type="text/javascript" src="images/login.js"></script>
+<link href="css/login2.css" rel="stylesheet" type="text/css" />
+<style>
+	body{
+		background:#ff8600;
+	}
+	</style>
+<script language="JavaScript">
+<!--
+
+function InputCheck(RegForm)
+{
+  if (RegForm.uid.value == "")
+  {
+    alert("未填写学号!");
+    RegForm.uid.focus();
+    return (false);
+  }
+  if (RegForm.password.value == "")
+  {
+    alert("未填写密码!");
+    RegForm.password.focus();
+    return (false);
+  }
+  if (RegForm.repass.value != RegForm.password.value)
+  {
+    alert("密码不一致!");
+    RegForm.repass.focus();
+    return (false);
+  }
+
+}
+
+//-->
+</script>
+<script language="JavaScript">
+<!--
+
+function InputChecklogin(LoginForm)
+{
+  if (LoginForm.uid.value == "")
+  {
+    alert("未填写学号!");
+    LoginForm.uid.focus();
+    return (false);
+  }
+  if (LoginForm.password.value == "")
+  {
+    alert("未填写密码!");
+    LoginForm.password.focus();
+    return (false);
+  }
+}
+
+//-->
+</script>
+</head>
+<body>
+<h1>高校修炼手册</h1>
+
+<div class="login" style="margin-top:50px;">
+    
+    <div class="header">
+        <div class="switch" id="switch"><a class="switch_btn_focus" id="switch_qlogin" href="javascript:void(0);" tabindex="7">快速登录</a>
+			<a class="switch_btn" id="switch_login" href="javascript:void(0);" tabindex="8">注册</a><div class="switch_bottom" id="switch_bottom" style="position: absolute; width: 64px; left: 0px;"></div>
+        </div>
+    </div>    
+  
+    
+    <div class="web_qr_login" id="web_qr_login" style="display: block; height: 235px;">    
+
+            <!--快速登录-->
+            <div class="web_login" id="web_login">
+               
+               
+               <div class="login-box">
+    
+            
+			<div class="login_form">
+				<form name="LoginForm" method="post" action="login.php" onSubmit="return InputChecklogin(this)">
+                <div class="uinArea" id="uinArea">
+                <label class="input-tips" for="uid">学号</label>
+                <div class="inputOuter" id="uArea">
+                    <input type="text" name="uid" id="uid" class="inputstyle"/>
+                </div>
+                </div>
+               <div class="pwdArea" id="pwdAreadArea">
+               <label class="input-tips" for="password">密码</label> 
+               <div class="inputOuter" id="pArea">
+                    
+                    <input type="password" id="password" name="password" class="inputstyle"/>
+                </div>
+                </div>
+                <div style="padding-left:50px;margin-top:20px;">
+				<button style="width:150px;" class="button_blue" type="submit" name="submit">登录</button>
+				</div>
+              </form>
+           </div>
+           
+            	</div>
+               
+            </div>
+            <!--登录end-->
+  </div>
+
+  <!--注册-->
+    <div class="qlogin" id="qlogin" style="display: none; ">
+   
+    <div class="web_login"><form name="RegForm" method="post" action="reg.php" onSubmit="return InputCheck(this)">
+	      <input type="hidden" name="to" value="reg"/>
+		  <input type="hidden" name="did" value="0"/>
+        <ul class="reg_form" id="reg-ul">
+                <li>
+                	
+                    <label for="user"  class="input-tips2">学号</label>
+                    <div class="inputOuter2">
+                        <input type="text" id="uid" name="uid" maxlength="16" class="inputstyle2"/><font style="color:red">*(必填)</font>
+                    </div>
+                    
+                </li>
+                
+                <li>
+                <label for="passwd" class="input-tips2">密码</label>
+                    <div class="inputOuter2">
+                        <input type="password" id="password"  name="password" maxlength="16" class="inputstyle2"/><font style="color:red">*(必填，不得少于6位)</font>
+                    </div>
+                    
+                </li>
+                <li>
+                <label for="passwd2" class="input-tips2">确认密码</label>
+                    <div class="inputOuter2">
+                        <input type="password" id="repass" name="repass" maxlength="16" class="inputstyle2" /><font style="color:red">*(必填)</font>
+                    </div>
+                    
+                </li>
+                <li>
+                    <div style="padding-left:90px;margin-top:20px;">
+						<button style="width:150px;" class="button_blue" type="submit" name="submit">注册</button>
+                    </div>
+                    
+                </li><div class="cl"></div>
+            </ul></form>
+           
+    
+    </div>
+   
+    
+    </div>
+    <!--注册end-->
+</div>
+</body></html>

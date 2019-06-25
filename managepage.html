@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+   <style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background-image:url("");
+		background-position: center 0;
+		background-size:cover;
+		margin: 0px;
+	}
+	.a0{
+		margin:0px;
+		height:65px;
+		
+	}
+	.heading{
+		position:fixed;
+		top: 0;
+	}
+	
+	.heading td{
+		text-align: center;
+		height:35px;
+		line-height: 35px;
+		padding-top: 15px;
+		padding-bottom: 0px;
+		font-family: "黑体";
+		font-size: 20px;
+		color:#ffffff;
+		margin:2px;
+	}
+	   .a1{
+		   padding: 20px;
+	   }
+	   li{
+		   list-style-type: none;
+	   }
+	   .a2{
+		   font-size: 20px;
+		   width: 30%;
+		   height: 50px;
+		   line-height: 50px;
+		   margin:10px 20px 10px 0px;
+		   border: none;
+		   background-color: #33cc99;
+		   color: #ffffff;
+		   font-family: "黑体";
+		   border-radius: 10px;
+	   }
+	</style>
+    <head>
+       <meta charset="utf-8" name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+        <title>管理员界面</title>
+        
+    </head>
+    <body>
+       <table class="heading" width="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tbody>
+    <tr>
+     <td width="20%" bgcolor="#FF8600"><img src="ff8600.png" height="40vx" width="40vx"></td>
+      <td width="60%" bgcolor="#FF8600"><p>管理员界面</p></td>
+      <td width="20%" bgcolor="#FF8600"></td>
+    </tr>
+	</tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+		  <div class="a0">
+				
+			</div>
+		</td>
+	</tr>
+</table>
+       <div class="a1">
+        <h1>管理评论</h1>
+    <ul>
+       <?php foreach ($comments as $comment): ?>
+       <li>  
+           <form action="mangkuozhan.php" method="post">
+               <div><?php echo $comment['uid']; ?></div>
+               <div><?php $text=courseplay($comment['courseid']); echo $text; ?></div>
+               <div><?php echo $comment['content']; ?></div>
+               <div>评论时间：<?php echo $comment['time']; ?></div>
+       <div><input type="hidden" name="id" value="<?php echo $comment['id']; ?>">
+		   <button class="a2" type="submit" name="action" value="发布">发布</button>
+		   <button class="a2" type="submit" name="action" value="删除">删除</button>
+       </div>
+           </form>
+           </li>
+     		<div class="line">
+     			<img src="line.png" width="100%" height="20">
+     		</div>
+           <?php endforeach; ?>
+           </div>
+    </ul>
+    </body>
+</html>

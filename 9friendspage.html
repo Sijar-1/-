@@ -1,0 +1,176 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+<title><?php htmlspecialchars($name, ENT_NOQUOTES, 'UTF-8'); ?></title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background-image:url("");
+		background-position: center 0;
+		background-size:cover;
+		margin: 0px;
+	}
+	.a0{
+		margin:0px;
+		height:40px;
+		
+	}
+	.heading{
+		position:fixed;
+		top: 0;
+	}
+	
+	.heading td{
+		text-align: center;
+		height:35px;
+		line-height: 35px;
+		padding-top: 15px;
+		padding-bottom: 0px;
+		font-family: "黑体";
+		font-size: 20px;
+		color:#ffffff;
+		margin:2px;
+	}
+	.big{
+		float: center;
+		width: 100%;
+		height:100%;
+		height: auto;
+		overflow-x: auto;
+
+		padding: 10px;
+		margin: 0 auto;
+		line-height: 30px;
+		font-size: 20px;
+		padding: 0px;
+		text-align: center;
+	}
+	.big #nickname{
+		font-family: "黑体";
+		font-weight: bold;
+	}
+	.big .info{
+		font-family: "黑体";
+		font-size: 16px;
+	}
+	 .big .image img{
+		border-radius: 75px;
+	
+	}
+	.image{
+		margin: 20px 0px 0px 0px;
+	}
+	p{
+		text-align:center;
+	}
+	
+	.kuang{
+		margin:10px;
+		text-align: center;
+	}
+	.anniu1{
+		text-align: center;
+		line-height: 50px;
+		height: 50px;
+		font-size: 20px;
+		font-family: "黑体";
+		color: #ffffff;
+		background-color:#33cc99;
+		border-radius: 10px;
+		width:200px;
+		font-family: "黑体";
+		text-decoration: none;
+		margin: 0 auto;
+		border: none;
+	}
+	
+	
+	.kuang img{
+		text-align: center;
+		border-radius: 40px;
+		width:80px;
+		height: 80px;
+		border-radius: 4
+	}
+	.anniu a{
+		text-decoration: none;
+	}
+	.space{
+		height:30px;
+	}
+</style>
+</head>
+
+<body>
+<table class="heading" width="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tbody>
+    <tr>
+     <td width="20%" bgcolor="#FF8600"><a href="javascript:history.go(-1)" target="_self"><img src="jiantou.gif" height="40vx" width="40vx"></a></td>
+      <td width="60%" bgcolor="#FF8600"><p><?php echo $name; ?></p></td>
+      <td width="20%" bgcolor="#FF8600"><img src="ff8600.png" width="50vx" height="50vx"></td>
+    </tr>
+	</tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+		  <div class="a0">
+				
+			</div>
+		</td>
+	</tr>
+</table>
+
+<table class="big" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td>
+      	<div class="image"><img src="touxiang2.jpg" height="150px" width="150px"></div>
+	<div class="nickname">
+	  <p id="nickname"><?php echo $name; ?></p></div>
+	  <div class="other">
+	  <p class="info"><?php echo $friendid; ?></p></div>
+		<div class="other">
+		  <p class="info"><?php echo $sexx; ?></p></div>
+     <div class="other">
+		  <p class="info"><?php echo $text; ?></p></div>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="anniu" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td>
+    
+	<form class="kuang" action="29hisrentinghistory.php" method="post">
+	<input type="hidden" name="shunxu" value="<?php  echo $friendid; ?>"  />
+		<button type="submit" class="anniu1" value="借阅过的书" >借阅过的书</button>
+	</form>
+	<form class="kuang" action="30hislessonhistory.php" method="post">
+	<input type="hidden" name="shunxu" value="<?php  echo $friendid; ?>"  />
+		<button type="submit" class="anniu1" value="上过的课" >上过的课</button>
+	</form>
+	<form class="kuang" action="31.php" method="post">
+	<input type="hidden" name="shunxu" value="<?php  echo $friendid; ?>"  />
+	<button type="submit" class="anniu1" value="兴趣标签" >兴趣标签</button>
+	</form>
+	<form class="kuang" action="18chattingbox.php" method="post">
+		   <input type="hidden" name="shunxu" value="<?php echo $frid; ?>" />
+			<button class="anniu1"  type="submit" value="聊天">聊天</button>
+			</form>
+</td>
+	</tr>
+	</tbody>
+	</table>
+
+	</body>
+ 
+</html>
+

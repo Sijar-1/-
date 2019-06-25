@@ -1,0 +1,224 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+<script src="echarts.js"></script>
+<title>高校修炼手册</title>
+
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background-image:url("");
+		background-position: center 0;
+		background-size:cover;
+		margin: 0px;
+	}
+	.a0{
+		margin:0px;
+		height:60px;
+		
+	}
+	.heading{
+		position:fixed;
+		top: 0;
+	}
+	
+	.heading td{
+		text-align: center;
+		height:35px;
+		line-height: 35px;
+		padding-top: 15px;
+		padding-bottom: 0px;
+		font-family: "黑体";
+		font-size: 20px;
+		color:#ffffff;
+		margin:2px;
+	}
+	.big{
+		
+		
+		padding: 20px;
+		
+		line-height: 30px;
+		font-size: 20px;
+	
+		text-align: center;
+	
+	}
+	.big #nickname{
+		font-family: "黑体";
+		font-weight: bold;
+	}
+	.big #credits{
+		font-family: "黑体";
+		font-size: 16px;
+	}
+	.big .info{
+		font-family: "黑体";
+		font-size: 20px;
+	}
+	 .big .image img{
+		border-radius: 50%;
+	
+	}
+	
+	.big .personal{
+		text-align: center; 
+		width:90%;
+		
+		height:50px;
+		line-height: 50px;
+		color:#ffffff;
+		border-radius: 10px;;
+		background-color: #33cc99;
+		font-size: 20px;
+		font-family: "黑体";
+		font-weight: bold; 
+		margin: 30px auto;
+	}
+	p{
+		text-align:center;
+	}
+	
+	.big a{
+		text-decoration: none;
+	}
+	.big .info{
+		font-weight: bold;
+		margin:10px 0px 10px;
+	}
+	.big .atlas{
+		text-align: center;
+		margin:auto 0;
+	}
+	.big #main{
+		text-align: center;
+		margin:auto 0;
+	}
+</style>
+</head>
+
+<body>
+<table class="heading" width="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tbody>
+    <tr>
+     <td width="20%" bgcolor="#FF8600"><img src="ff8600.png" height="40vx" width="40vx"></td>
+      <td width="60%" bgcolor="#FF8600"><p>高校修炼手册</p></td>
+      <td width="20%" bgcolor="#FF8600"></td>
+    </tr>
+	</tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+		  <div class="a0">
+				
+			</div>
+		</td>
+	</tr>
+</table>
+
+<table class="big" width="100%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+     <td width="35%">
+
+     	<a href="11mypersonalpage.php"><div class="personal">个人资料</div></a>
+		  <a href="32mymessage.php">
+		  <div class="personal">消息</div></a>
+     </td>
+      <td width="30%">
+      	<?php  include "12touxiang.php";  ?>
+	<div class="nickname">
+	  <p id="nickname"><?php echo $name;?></p></div>
+	  <div class="nickname">
+	  <p id="credits"><?php echo $score;?>分</p></div>
+		
+      </td>
+      <td width="35%">
+   
+      <a href="13books.php"><div class="personal">书籍</div></a>
+		  <a href="14lessons.php"><div class="personal">课程</div></a>
+		</td>
+      
+    </tr>
+  
+   <tr>
+   	<td colspan="3">
+     	<div class="info">
+     		我的兴趣图谱
+     	</div>
+     </td>
+   </tr>
+    <tr>
+     
+      <td colspan="3">
+	<div class="atlas">
+    <!-- 为 ECharts 准备一个具备大小（宽高）的Dom -->
+    <div id="main" style="margin-top: 10px; width: 101%;height: 360px; margin:0 auto;padding:0px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main'));
+
+        // 指定图表的配置项和数据
+       option = {
+    title: {},
+    tooltip: {},
+    legend: {
+        data: ['图书', '课程']
+    },
+    radar: {
+        // shape: 'circle',
+        name: {
+            textStyle: {
+                color: '#fff',
+                backgroundColor: '#999',
+                borderRadius: 3,
+                padding: [3, 5]
+           }
+        },
+        indicator: [
+           { name: '政治与法律', max: 6500},
+           { name: '文学与艺术', max: 16000},
+           { name: '科学与技术', max: 30000},
+           { name: '农工与环境', max: 38000},
+           { name: '体育与教育', max: 52000},
+           { name: '经济与金融', max: 25000}
+        ]
+    },
+    series: [{
+        name: '预算 vs 开销（Budget vs spending）',
+        type: 'radar',
+        center:[600,600] ,
+        // areaStyle: {normal: {}},
+        data : [
+            {
+                value : [4300, 10000, 28000, 35000, 50000, 19000],
+                name : '图书'
+            },
+             {
+                value : [5000, 14000, 28000, 31000, 42000, 21000],
+                name : '课程'
+            }
+        ]
+    }]
+};
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+	</div>
+   </td>
+    </tr>
+  </tbody>
+</table>
+
+	</body>
+ 
+</html>
+
+

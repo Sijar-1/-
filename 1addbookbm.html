@@ -1,0 +1,279 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+<title>手动添加书目</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background-image:url("");
+		background-position: center 0;
+		background-size:cover;
+		margin: 0px;
+	}
+	.a0{
+		margin:0px;
+		height:60px;
+		
+	}
+	.heading{
+		position:fixed;
+		top: 0;
+	}
+	
+	.heading td{
+		text-align: center;
+		height:35px;
+		line-height: 35px;
+		padding-top: 15px;
+		padding-bottom: 0px;
+		font-family: "黑体";
+		font-size: 20px;
+		color:#ffffff;
+		margin:2px;
+	}
+
+	
+	.info{
+		height:30px;
+		line-height: 30px;
+		width:100%;
+		font-size: 16px;
+		color: #777777;
+		font-family: "黑体";
+		margin-left: 20px;
+	}
+	
+	.input{
+		margin:20px 0px 20px 10px;
+	}
+	.input .shuru{
+		height:30px;
+		line-height: 30px;
+		width:80%;
+		font-size: 15px;
+		font-weight: lighter;
+		
+	}
+	.input .sousuo{
+		font-size: 20px;
+		font-weight: bold;
+		font-family: "黑体";
+		color: #ffffff;
+		background-color: #33cc99;
+		margin-left: 20px;
+		border-radius: 5px;
+		text-align: center;
+		height: 30px;
+		line-height: 30px;
+	}
+	a{
+		text-decoration: none;
+	}
+	.logo{
+		text-align: center;
+	}
+	.logox{
+		text-align: center;
+		margin-left: 20px;
+	}
+	.button{
+		height:20px;
+		line-height: 20px;
+		font-size: 15px;
+		font-family: "黑体";
+		display: inline;
+		margin: auto;
+		margin-left: 20px;
+	}
+	
+	.bottom{
+	
+	margin-bottom: 10px;
+	width: 100%;
+	padding: 0;
+	text-align: center;
+	margin-top: 20px;
+	}
+	.bottom1{
+		width:60%;
+		height:50px;
+		line-height: 50px;
+		font-family: "黑体";
+		margin:auto;
+		text-align: center;
+		background-color: #33cc99;
+		color:#ffffff;
+		font-size: 22px;
+		font-weight: bold;
+		border-radius: 10px;
+		border: none;
+	}
+</style>
+<script type="text/javascript">
+function checkForm(){
+    var tag = false;
+    var bookname = document.getElementById("bookname").value;
+	var author = document.getElementById("author").value;
+	var ISBN = document.getElementById("ISBN").value;
+	var publisher = document.getElementById("publisher").value;
+	var publish_year = document.getElementById("publish_year").value;
+	var book_rate = document.getElementById("book_rate").value;
+	if ( bookname == ""){
+        alert("书名未输入");
+    }   
+	else if ( author == ""){
+        alert("作者姓名未输入");
+    }
+	else if ( ISBN == ""){
+        alert("ISBN未输入");
+    }   
+	else if ( publisher == ""){
+        alert("出版社未输入");
+    }
+	else if ( publish_year == ""){
+        alert("出版年份未输入");
+    }
+	else if (book_rate == ""){
+        alert("书籍评分未输入");
+    }
+	else{
+    
+        tag = true;
+    }
+    return tag;
+}
+</script>	
+	</head>
+	
+<body>
+<table class="heading" width="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tbody>
+    <tr>
+      <td width="20%" bgcolor="#FF8600"><a href="javascript:history.go(-1)" target="_self"><img src="jiantou.gif" height="40vx" width="40vx"></a></td>
+      <td width="60%" bgcolor="#FF8600"><p>手动创建书目</p></td>
+      <td width="20%" bgcolor="#FF8600"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<div class="a0">
+				
+			</div>
+		</td>
+	</tr>
+</table>
+
+<form method="post" action="1addbookbm/connect.php"   enctype="multipart/form-data"   onsubmit="return checkForm()">
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo1.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+      	<input class="shuru" type="" name="bookname" id="bookname" maxlength="30" placeholder="请输入书名"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo2.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+      	<input class="shuru" type="" name="author" id="author" maxlength="30" placeholder="请输入作者姓名"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo3.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+      	<input class="shuru" type="" name="publisher" id="publisher" maxlength="20" placeholder="请输入出版社名称"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+	  <td width="20%"><div class="logo"><img src="logo1.png" width="40px" height="40px"></div></td>
+      <td width="80%"><input class="shuru" type="" name="ISBN" id="ISBN" maxlength="13" placeholder="请输入ISBN"/></td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="20%"><div class="logo"><img src="logo2.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+  
+      	<input class="shuru" type="" name="publish_year" id="publish_year" maxlength="20" placeholder="请输入出版年份"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="20%"><div class="logo"><img src="logo3.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+  
+      	<input class="shuru" type="" name="book_rate" id="book_rate" maxlength="20" placeholder="请输入对书籍的评分（10分制）"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="20%" rowspan="2"><div class="logox"><img src="logo1.png" width="40px" height="40px"></div></td>
+      <td width="80%"><div class="info">上传书籍图片</div>
+	  </td>
+      </tr>
+      <tr>
+      <td width="80%">
+      	<input type="file" name="file" id="file" class="button" value="选择图片"  accept="image/jpeg,image/gif,image/png,image/pjpeg" />
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="bottom" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td>
+    <button type="submit" name="submit"  value="确认创建并添加" id="tijiao" class="bottom1">确认创建并添加</button>
+</td>
+	</tr>
+  </tbody>
+</table>
+</form>
+
+</body>
+</html>
+

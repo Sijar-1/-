@@ -1,0 +1,333 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8" name="viewport" content="initial-scale=1, user-scalable=0, minimal-ui">
+<title>手动创建课程</title>
+<style>
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	body{
+		background-image:url("");
+		background-position: center 0;
+		background-size:cover;
+		margin: 0px;
+	}
+	.a0{
+		margin:0px;
+		height:60px;
+		
+	}
+	.heading{
+		position:fixed;
+		top: 0;
+	}
+	
+	.heading td{
+		text-align: center;
+		height:35px;
+		line-height: 35px;
+		padding-top: 15px;
+		padding-bottom: 0px;
+		font-family: "黑体";
+		font-size: 20px;
+		color:#ffffff;
+		margin:2px;
+	}
+	
+	.info{
+		height:30px;
+		line-height: 30px;
+		width:100%;
+		font-size: 24px;
+		font-family: "黑体";
+		
+	}
+	.input{
+		margin:20px 0px 20px 10px;
+	}
+	.input .shuru{
+		height:30px;
+		line-height: 30px;
+		width:100%;
+		
+		font-size: 18px;
+		font-weight: lighter;
+	}
+	.input .shuruks{
+		height:90px;
+		line-height: 90px;
+		width:100%;
+		
+		font-size: 18px;
+		font-weight: lighter;
+	}
+	.input .sousuo{
+		font-size: 20px;
+		font-weight: bold;
+		font-family: "黑体";
+		color: #ffffff;
+		background-color: #33cc99;
+		margin-left: 20px;
+		border-radius: 5px;
+		text-align: center;
+		height: 30px;
+		line-height: 30px;
+	}
+	a{
+		text-decoration: none;
+	}
+	.logo{
+		text-align: center;
+	}
+	
+
+	.bottom{
+		
+		margin-bottom: 10px;
+		width: 100%;
+		padding: 0;
+		text-align: center;
+		margin-top: 20px;
+		 
+		
+	}
+	.bottom1{
+		width:60%;
+		height:50px;
+		line-height: 50px;
+		font-family: "黑体";
+		margin:auto;
+		text-align: center;
+		background-color: #33cc99;
+		color:#ffffff;
+		font-size: 22px;
+		font-weight: bold;
+		border-radius: 10px;
+	}
+</style>
+
+<script type="text/javascript">
+function checkForm(){
+    var tag = false;
+    var cname = document.getElementById("cname").value;
+	var teacher = document.getElementById("teacher").value;
+	var credit = document.getElementById("credit").value;
+	var school = document.getElementById("school").value;
+	var course_hour = document.getElementById("course_hour").value;
+	var content = document.getElementById("content").value;
+	var textbook = document.getElementById("textbook").value;
+	var course_nature = document.getElementById("course_nature").value;
+	var examination = document.getElementById("examination").value;
+	if ( cname == ""){
+        alert("课程名未输入");
+    }   
+	else if ( teacher == ""){
+        alert("教师姓名未输入");
+    }
+	else if ( credit == ""){
+        alert("学分未输入");
+    }   
+	else if ( school == ""){
+        alert("开课院校未输入");
+    }
+	else if ( course_hour == ""){
+        alert("学时未输入");
+    }
+	else if ( content == ""){
+        alert("课程内容未输入");
+    }
+	else if ( textbook == ""){
+        alert("参考书目未输入");
+    }
+	else if ( course_nature == ""){
+        alert("课程性质未输入");
+    }
+	else if ( examination == ""){
+        alert("考试内容未输入");
+    }
+	else{
+        
+        tag = true;
+    }
+    return tag;
+}
+</script>
+	</head>
+	
+<body>
+
+<table class="heading" width="100%" border="0" cellpadding="0" cellspacing="0" >
+  <tbody>
+    <tr>
+      <td width="20%" bgcolor="#FF8600"><a href="javascript:history.go(-1)" target="_self"><img src="jiantou.gif" height="40vx" width="40vx"></a></td>
+      <td width="60%" bgcolor="#FF8600"><p>手动创建课程</p></td>
+      <td width="20%" bgcolor="#FF8600"></td>
+    </tr>
+  </tbody>
+</table>
+
+<table border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td>
+			<div class="a0">
+				
+			</div>
+		</td>
+	</tr>
+</table>
+
+<form action="6addlessonbm.php" method="post"   enctype="multipart/form-data" onsubmit="return checkForm()">
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="20%"><div class="logo"><img src="logo1.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+	  
+      	<input class="shuru" type="" name="cname" placeholder="请输入课程名"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo2.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+	  
+      	<input class="shuru" type="" name="teacher" id="teacher" placeholder="请输入教师姓名"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo3.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+	  
+      	<input class="shuru" type="" name="credit" id="credit" placeholder="请输入学分"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo1.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+	  
+      	<input class="shuru" type="" name="school" id="school" placeholder="请输入开课院校"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo2.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+	  
+      	<input class="shuru" type="" name="course_hour" id="course_hour" placeholder="请输入学时"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo1.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+	  
+      	<input class="shuru" type="" name="content" id="content" placeholder="请输入课程内容"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo2.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+      	<input class="shuru" type="" name="textbook" id="textbook" placeholder="请输入参考教程"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo3.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+	  
+      	<input class="shuru" type="" name="course_nature" id="course_nature" placeholder="请输入课程性质(必修还是选修）"/>
+      	
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+		<td width="20%"><div class="logo"><img src="logo1.png" width="40px" height="40px"></div></td>
+		
+      <td width="80%"><textarea class="shuruks" placeholder="请输入考试内容" name="examination" id="examination"></textarea></td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="input" width="95%" border="0" cellpadding="0" cellspacing="0">
+  <tbody>
+    <tr>
+      <td width="20%"><div class="logo"><img src="logo1.png" width="40px" height="40px"></div></td>
+      <td width="80%">
+      	<div class="info">上传课程图片</div>
+     
+      	<input type="file" name="file" id="file" class="button" value="选择图片"  accept="image/jpeg,image/gif,image/png,image/pjpeg" />
+      </td>
+
+    </tr>
+  </tbody>
+</table>
+
+<table class="bottom" width="100%" border="0" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td>
+	<input type="submit" name="submit"  value="确认创建并添加" id="tijiao" class="bottom1"/>
+</td>
+	</tr>
+  </tbody>
+</table>
+</form>
+
+
+</body>
+</html>
+
